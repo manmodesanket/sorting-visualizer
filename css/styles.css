@@ -1,0 +1,21 @@
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0px;
+}
+
+.navbar{
+    height: 60px;
+    background-color: blueviolet;
+    color: whitesmoke;
+}
+
+ul {
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+}
+
+li {
+    cursor: pointer;
+    margin-top: 20px;
+}
