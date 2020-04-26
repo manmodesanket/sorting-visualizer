@@ -11,19 +11,18 @@ function between(min, max) {
 }
 
 function createArray() {
+    array = []
     for(let i = 0; i < 20; i++) {
         array.push(between(3, 20));
     }
     let arena = document.querySelector(".arena");
     arena.innerHTML = '';
     for(let i = 0; i < 20; i++) {
-        console.log(array[i]);
         let element = document.createElement('div');
         element.setAttribute('class', 'element');
         element.style.height = (array[i] * 20) + "px"; 
         arena.appendChild(element);
     }
-    console.log("created");
 }
 
 
