@@ -1,60 +1,58 @@
 
-function mergeSort(start, end) {
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function mergeSort(array, start, end) {
     if(start < end) {
-        //console.log(start, end);
+        let childs = document.querySelector('.arena').childNodes;
         let mid = Math.floor((start + end) / 2);
-        //console.log(mid);
-        mergeSort(start, mid);
-        mergeSort(mid + 1, end);
-        merge(start, mid, end);
+        await mergeSort(array, start, mid);
+        await mergeSort(array, mid + 1, end);
+        merge(array, start, mid, end);
+        await sleep(500);
+        childs[start].style.backgroundColor = "blueviolet";
+        childs[end].style.backgroundColor = "blueviolet";
     }
 }
 
-function merge(start, mid, end) {
+function merge(array, start, mid, end) {
     let p = start;
     let q = mid + 1;
     let arr = [];
     let childs = document.querySelector('.arena').childNodes;
-    //console.log(childs);
-    //console.log(start, mid, end);
+    childs[start].style.backgroundColor = "yellow";
+    childs[end].style.backgroundColor = "green";
     while(p <= mid && q <= end) {
-        let first = childs[p].style.height;
-        first = first.substr(0, first.length - 2);
-        first = parseInt(first);
-        let second = childs[q].style.height;
-        second = second.substr(0, second.length - 2);
-        second = parseInt(second);
-        //console.log(first, second);
-        if(first <= second) {
-            arr.push(childs[p++]);
-            //console.log(arr[arr.length - 1], "first");    
+        
+        if(array[p] <= array[q]) {
+            arr.push(array[p++]);
+
         }
         else {
-            arr.push(childs[q++]);
+            arr.push(array[q++]);
         }
     }
-
+    
     while (p <= mid) {
-        arr.push(childs[p]);
+        arr.push(array[p]);
         p++;
- 
     }
 
     while (q <= end) {
-        arr.push(childs[q]);
+        arr.push(array[q]);
         q++;
     }
 
-    for(let i = 0; i < arr.length; i++) {
-        console.log(arr[i]);
-    }
-    console.log("end");
-    /*let k = 0;
-    let arena = document.querySelector(".arena");
+    let k = 0;
     for(let i = start; i <= end; i++) {
-        arena.replaceChild(arr[k++], childs[i]);
-    }*/
-
+        array[i] = arr[k++];
+    }
+   
+    for(let i = start; i <= end; i++) {
+        childs[i].style.height = (array[i] * 20) + "px";
+    }
+    
 }
 
 export {mergeSort};
