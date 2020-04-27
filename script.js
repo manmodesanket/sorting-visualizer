@@ -1,5 +1,5 @@
 import {bubbleSort} from './scripts/bubble.js';
-
+import {insertionSort} from './scripts/insertion.js';
 
 let array = [];
 
@@ -35,5 +35,21 @@ create.addEventListener('click', createArray);
 
 let bubble = document.getElementById("bubble");
 bubble.addEventListener('click', bubbleSort);
+
+let insertion = document.getElementById("insertion");
+insertion.addEventListener('click', function () {
+    insertionSort(array);
+});
+
+
+/*let merge = document.getElementById("merge");
+merge.addEventListener('click', function() {
+    
+    
+    let childs = document.querySelector('.arena').childNodes;
+    let start = 0;
+    let end = childs.length - 1;
+    mergeSort(start, end);
+});*/
 
 

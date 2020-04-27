@@ -6,7 +6,7 @@ function sleep(ms) {
 async function bubbleSort() {
     let arena = document.querySelector(".arena");
     let childs = document.querySelector(".arena").childNodes;
-    for(let i = 0; i < arena.childElementCount; i++) {
+    for(let i = 0; i < arena.childElementCount - 1; i++) {
         //console.log(first);
         for(let j = 0; j < (arena.childElementCount - i - 1); j++) {
             childs[j].style.backgroundColor = "yellow";
