@@ -6,7 +6,7 @@ body{
 
 .navbar{
     height: 60px;
-    background-color: blueviolet;
+    background-color: rgb(20, 34, 114);
     color: whitesmoke;
 }
 
@@ -43,7 +43,7 @@ li {
     bottom: 0;
     text-align: center;
     color: whitesmoke;
-    background-color: blueviolet;
+    background-color: rgb(20, 34, 114);
 }
 
 a {
