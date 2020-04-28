@@ -37,7 +37,7 @@ async function partition(array, l, h) {
             //console.log(array[i], array[j]);
             childs[i].style.backgroundColor = "yellow";
             childs[j].style.backgroundColor = "green";
-            await sleep(500);
+            await sleep(200);
             let temp = array[i];
             array[i] = array[j];
             childs[i].style.height = (array[j] * 20) + "px";

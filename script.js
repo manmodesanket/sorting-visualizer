@@ -17,12 +17,12 @@ function between(min, max) {
 
 async function createArray() {
     array = []
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 100; i++) {
         array.push(between(3, 20));
     }
     let arena = document.querySelector(".arena");
     arena.innerHTML = '';
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 100; i++) {
         let element = document.createElement('div');
         element.setAttribute('class', 'element');
         element.style.height = (array[i] * 20) + "px";
@@ -53,7 +53,9 @@ bubble.addEventListener('click', async function () {
     if (sorting === 1) {
         sorting = 0;
         canCreate = 0;
+        bubble.style.color =  "red";
         await bubbleSort();
+        bubble.style.color =  "whitesmoke";
         sorting = 1;
         canCreate = 1;
     }
@@ -65,7 +67,9 @@ insertion.addEventListener('click', async function () {
     if (sorting === 1) {
         sorting = 0;
         canCreate = 0;
+        insertion.style.color =  "red";
         await insertionSort(array);
+        insertion.style.color =  "whitesmoke";
         sorting = 1;
         canCreate = 1;
     }
@@ -80,7 +84,9 @@ merge.addEventListener('click', async function () {
         canCreate = 0;
         let start = 0;
         let end = array.length - 1;
+        merge.style.color =  "red";
         await mergeSort(array, start, end);
+        merge.style.color =  "whitesmoke";
         sorting = 1;
         canCreate = 1;
     }
@@ -95,7 +101,9 @@ quick.addEventListener('click', async function () {
         let l = 0;
         let h = array.length;
         array.push(1000000);
+        quick.style.color =  "red";
         await quickSort(array, l, h);
+        quick.style.color =  "whitesmoke";
         sorting = 1;
         canCreate = 1;
     }
