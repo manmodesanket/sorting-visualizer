@@ -15,7 +15,7 @@ async function insertionSort (array) {
             childs[j].style.backgroundColor = "green";
             array[j + 1] = array[j];
             childs[j + 1].style.height = (array[j] * 20) + "px";
-            await sleep(200);
+            await sleep(50);
             childs[j].style.backgroundColor = "blueviolet";    
             j = j - 1;
         }

@@ -10,7 +10,7 @@ async function mergeSort(array, start, end) {
         await mergeSort(array, start, mid);
         await mergeSort(array, mid + 1, end);
         merge(array, start, mid, end);
-        await sleep(500);
+        await sleep(100);
         childs[start].style.backgroundColor = "blueviolet";
         childs[end].style.backgroundColor = "blueviolet";
     }

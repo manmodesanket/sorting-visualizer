@@ -20,7 +20,7 @@ async function partition(array, l, h) {
     let childs = document.querySelector('.arena').childNodes;
     childs[l].style.backgroundColor = "red";
     childs[h - 1].style.backgroundColor = "red";
-    await sleep(200);
+    await sleep(50);
     childs[l].style.backgroundColor = "blueviolet";
     childs[h - 1].style.backgroundColor = "blueviolet";
     let pivot = array[l];
@@ -37,7 +37,7 @@ async function partition(array, l, h) {
             //console.log(array[i], array[j]);
             childs[i].style.backgroundColor = "yellow";
             childs[j].style.backgroundColor = "green";
-            await sleep(200);
+            await sleep(50);
             let temp = array[i];
             array[i] = array[j];
             childs[i].style.height = (array[j] * 20) + "px";
@@ -55,7 +55,7 @@ async function partition(array, l, h) {
     childs[j].style.height = (temp * 20) + "px";
 
     childs[j].style.backgroundColor = "pink";
-    await sleep(500);
+    await sleep(100);
     childs[j].style.backgroundColor = "blueviolet";
     return j;
 }

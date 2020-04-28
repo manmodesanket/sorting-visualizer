@@ -18,7 +18,7 @@ function between(min, max) {
 async function createArray() {
     array = []
     for (let i = 0; i < 100; i++) {
-        array.push(between(3, 20));
+        array.push(between(0, 25));
     }
     let arena = document.querySelector(".arena");
     arena.innerHTML = '';

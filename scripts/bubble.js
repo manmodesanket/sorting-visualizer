@@ -18,7 +18,7 @@ async function bubbleSort() {
             second = second.substr(0, second.length - 2);
             second = parseInt(second);
             //console.log(second);
-            await sleep(100);
+            await sleep(20);
             if(first > second) {
                 childs[j + 1].parentNode.insertBefore(childs[j + 1], childs[j]);
             }
