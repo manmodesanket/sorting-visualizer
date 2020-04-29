@@ -2,6 +2,7 @@ import { bubbleSort } from './scripts/bubble.js';
 import { insertionSort } from './scripts/insertion.js';
 import { mergeSort } from './scripts/merge.js'
 import { quickSort } from './scripts/quick.js'
+import { lastTweak } from './scripts/lastTweak.js';
 
 let array = [];
 
@@ -55,6 +56,7 @@ bubble.addEventListener('click', async function () {
         canCreate = 0;
         bubble.style.color =  "red";
         await bubbleSort();
+        lastTweak();
         bubble.style.color =  "whitesmoke";
         sorting = 1;
         canCreate = 1;
@@ -69,6 +71,7 @@ insertion.addEventListener('click', async function () {
         canCreate = 0;
         insertion.style.color =  "red";
         await insertionSort(array);
+        lastTweak();
         insertion.style.color =  "whitesmoke";
         sorting = 1;
         canCreate = 1;
@@ -86,6 +89,7 @@ merge.addEventListener('click', async function () {
         let end = array.length - 1;
         merge.style.color =  "red";
         await mergeSort(array, start, end);
+        lastTweak();
         merge.style.color =  "whitesmoke";
         sorting = 1;
         canCreate = 1;
@@ -103,6 +107,7 @@ quick.addEventListener('click', async function () {
         array.push(1000000);
         quick.style.color =  "red";
         await quickSort(array, l, h);
+        lastTweak();
         quick.style.color =  "whitesmoke";
         sorting = 1;
         canCreate = 1;
