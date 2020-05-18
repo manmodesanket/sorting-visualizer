@@ -1,3 +1,17 @@
+const pause = document.getElementById('pause');
+
+let run = true;
+
+pause.addEventListener('click', () => {
+    run = run === true ? false : true;
+    pause.textContent = run === true ? "Pause" : "Play";
+})
+
+async function pauseHandler () {
+    while (run == false)
+        await sleep(1);
+    return;
+}
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -11,6 +25,9 @@ async function mergeSort(array, start, end) {
         await mergeSort(array, mid + 1, end);
         merge(array, start, mid, end);
         await sleep(100);
+        if(run == false) {  
+            await pauseHandler();
+        }
         childs[start].style.backgroundColor = "blueviolet";
         childs[end].style.backgroundColor = "blueviolet";
     }

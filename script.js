@@ -10,6 +10,10 @@ let sorting = 0;
 
 let canCreate = 1;
 
+const pause = document.getElementById('pause');
+
+pause.disabled = true;
+
 function between(min, max) {
     let random = Math.random();
     let randomNumber = ((Math.floor(random * (max - min + 1)) + min));
@@ -55,6 +59,7 @@ bubble.addEventListener('click', async function () {
         sorting = 0;
         canCreate = 0;
         bubble.style.color =  "red";
+        pause.disabled = false;
         await bubbleSort();
         lastTweak();
         bubble.style.color =  "whitesmoke";
@@ -70,6 +75,7 @@ insertion.addEventListener('click', async function () {
         sorting = 0;
         canCreate = 0;
         insertion.style.color =  "red";
+        pause.disabled = false;
         await insertionSort(array);
         lastTweak();
         insertion.style.color =  "whitesmoke";
@@ -88,6 +94,7 @@ merge.addEventListener('click', async function () {
         let start = 0;
         let end = array.length - 1;
         merge.style.color =  "red";
+        pause.disabled = false;
         await mergeSort(array, start, end);
         lastTweak();
         merge.style.color =  "whitesmoke";
@@ -106,6 +113,7 @@ quick.addEventListener('click', async function () {
         let h = array.length;
         array.push(1000000);
         quick.style.color =  "red";
+        pause.disabled = false;
         await quickSort(array, l, h);
         lastTweak();
         quick.style.color =  "whitesmoke";

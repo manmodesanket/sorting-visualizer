@@ -1,3 +1,19 @@
+const pause = document.getElementById('pause');
+
+let run = true;
+
+pause.addEventListener('click', () => {
+    run = run === true ? false : true;
+    pause.textContent = run === true ? "Pause" : "Play";
+})
+
+async function pauseHandler () {
+    while (run == false)
+        await sleep(1);
+    return;
+}
+
+
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -43,6 +59,9 @@ async function partition(array, l, h) {
             childs[i].style.height = (array[j] * 20) + "px";
             array[j] = temp;
             childs[j].style.height = (temp * 20) + "px";
+            if(run == false) {  
+                await pauseHandler();
+            }
             childs[i].style.backgroundColor = "blueviolet";
             childs[j].style.backgroundColor = "blueviolet";
         }

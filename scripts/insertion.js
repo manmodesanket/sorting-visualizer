@@ -1,4 +1,20 @@
 
+const pause = document.getElementById('pause');
+
+let run = true;
+
+pause.addEventListener('click', () => {
+    run = run === true ? false : true;
+    pause.textContent = run === true ? "Pause" : "Play";
+})
+
+async function pauseHandler () {
+    while (run == false)
+        await sleep(1);
+    return;
+}
+
+
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -16,6 +32,9 @@ async function insertionSort (array) {
             array[j + 1] = array[j];
             childs[j + 1].style.height = (array[j] * 20) + "px";
             await sleep(50);
+            if(run == false) {  
+                await pauseHandler();
+            }
             childs[j].style.backgroundColor = "blueviolet";    
             j = j - 1;
         }

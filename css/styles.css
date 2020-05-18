@@ -12,7 +12,7 @@ body{
 
 ul {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     list-style-type: none;
 }
 
@@ -24,7 +24,6 @@ li {
 .arena {
     display: flex;
     justify-content: center;
-    align-items: flex-end;
     height: 550px;
     margin-left: 20px;
     margin-right: 20px;
@@ -56,6 +55,16 @@ a {
 
 a:hover {
     color: blue;
+}
+
+.play-pause {
+    text-align: center;
+}
+
+#pause {
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
 }
 
 @media only screen and (max-width: 600px) {

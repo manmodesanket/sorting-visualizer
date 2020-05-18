@@ -1,4 +1,21 @@
 
+const pause = document.getElementById('pause');
+
+let run = true;
+
+pause.addEventListener('click', () => {
+    run = run === true ? false : true;
+    pause.textContent = run === true ? "Pause" : "Play";
+})
+
+
+
+async function pauseHandler () {
+    while (run == false)
+        await sleep(1);
+    return;
+}
+
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -21,6 +38,9 @@ async function bubbleSort() {
             await sleep(20);
             if(first > second) {
                 childs[j + 1].parentNode.insertBefore(childs[j + 1], childs[j]);
+            }
+            if(run == false) {  
+                await pauseHandler();
             }
             childs[j].style.backgroundColor = "blueviolet";
             childs[j + 1].style.backgroundColor = "blueviolet";
