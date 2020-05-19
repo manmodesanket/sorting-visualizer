@@ -20,7 +20,7 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-async function bubbleSort() {
+async function bubbleSort(speed) {
     let arena = document.querySelector(".arena");
     let childs = document.querySelector(".arena").childNodes;
     for(let i = 0; i < arena.childElementCount - 1; i++) {
@@ -35,7 +35,7 @@ async function bubbleSort() {
             second = second.substr(0, second.length - 2);
             second = parseInt(second);
             //console.log(second);
-            await sleep(20);
+            await sleep(speed);
             if(first > second) {
                 childs[j + 1].parentNode.insertBefore(childs[j + 1], childs[j]);
             }

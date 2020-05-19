@@ -14,17 +14,20 @@ async function pauseHandler () {
 }
 
 function sleep(ms) {
+    //console.log(ms);
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-async function mergeSort(array, start, end) {
+async function mergeSort(array, start, end, speed) {
+    //console.log(speed);
     if(start < end) {
         let childs = document.querySelector('.arena').childNodes;
         let mid = Math.floor((start + end) / 2);
-        await mergeSort(array, start, mid);
-        await mergeSort(array, mid + 1, end);
-        merge(array, start, mid, end);
-        await sleep(100);
+        await mergeSort(array, start, mid, speed);
+        await mergeSort(array, mid + 1, end, speed);
+        merge(array, start, mid, end, speed);
+        //console.log(speed);
+        await sleep(speed);
         if(run == false) {  
             await pauseHandler();
         }

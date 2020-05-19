@@ -14,6 +14,10 @@ const pause = document.getElementById('pause');
 
 pause.disabled = true;
 
+const speed = document.getElementById('speed');
+
+
+
 function between(min, max) {
     let random = Math.random();
     let randomNumber = ((Math.floor(random * (max - min + 1)) + min));
@@ -60,11 +64,14 @@ bubble.addEventListener('click', async function () {
         canCreate = 0;
         bubble.style.color =  "red";
         pause.disabled = false;
-        await bubbleSort();
+        speed.disabled = true;
+        await bubbleSort(speed.max - speed.value);
         lastTweak();
         bubble.style.color =  "whitesmoke";
         sorting = 1;
         canCreate = 1;
+        pause.disabled = true;
+        speed.disabled = false;
     }
 });
 
@@ -76,11 +83,14 @@ insertion.addEventListener('click', async function () {
         canCreate = 0;
         insertion.style.color =  "red";
         pause.disabled = false;
-        await insertionSort(array);
+        speed.disabled = true;
+        await insertionSort(array, speed.max - speed.value);
         lastTweak();
         insertion.style.color =  "whitesmoke";
         sorting = 1;
         canCreate = 1;
+        pause.disabled = true;
+        speed.disabled = false;
     }
 });
 
@@ -95,11 +105,15 @@ merge.addEventListener('click', async function () {
         let end = array.length - 1;
         merge.style.color =  "red";
         pause.disabled = false;
-        await mergeSort(array, start, end);
+        speed.disabled = true;
+        //console.log(speed.value);
+        await mergeSort(array, start, end, speed.max - speed.value);
         lastTweak();
         merge.style.color =  "whitesmoke";
         sorting = 1;
         canCreate = 1;
+        pause.disabled = true;
+        speed.disabled = false;
     }
 });
 
@@ -114,11 +128,14 @@ quick.addEventListener('click', async function () {
         array.push(1000000);
         quick.style.color =  "red";
         pause.disabled = false;
-        await quickSort(array, l, h);
+        speed.disabled = true;
+        await quickSort(array, l, h, speed.max - speed.value);
         lastTweak();
         quick.style.color =  "whitesmoke";
         sorting = 1;
         canCreate = 1;
+        pause.disabled = true;
+        speed.disabled = false;
     }
 });
 

@@ -20,7 +20,7 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-async function insertionSort (array) {
+async function insertionSort (array, speed) {
     let childs = document.querySelector(".arena").childNodes;
     let i, j, key;
     for(i = 1; i < array.length; i++) {
@@ -31,7 +31,7 @@ async function insertionSort (array) {
             childs[j].style.backgroundColor = "green";
             array[j + 1] = array[j];
             childs[j + 1].style.height = (array[j] * 20) + "px";
-            await sleep(50);
+            await sleep(speed);
             if(run == false) {  
                 await pauseHandler();
             }
