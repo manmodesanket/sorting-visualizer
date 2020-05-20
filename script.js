@@ -108,6 +108,7 @@ merge.addEventListener('click', async function () {
         pause.disabled = false;
         speed.disabled = true;
         //console.log(speed.value);
+        stop.disabled = true;
         await mergeSort(array, start, end, speed.max - speed.value);
         lastTweak();
         merge.style.color =  "whitesmoke";
@@ -130,6 +131,7 @@ quick.addEventListener('click', async function () {
         quick.style.color =  "red";
         pause.disabled = false;
         speed.disabled = true;
+        stop.disabled = true;
         await quickSort(array, l, h, speed.max - speed.value);
         lastTweak();
         quick.style.color =  "whitesmoke";
