@@ -14,6 +14,13 @@ async function pauseHandler () {
     return;
 }
 
+let halt = 0;
+
+const stop = document.getElementById('stop');
+
+stop.addEventListener('click', () => {
+    halt = 1;
+})
 
 
 function sleep(ms) {
@@ -21,6 +28,8 @@ function sleep(ms) {
 }
 
 async function insertionSort (array, speed) {
+    stop.disabled = false;
+    halt = 0;  
     let childs = document.querySelector(".arena").childNodes;
     let i, j, key;
     for(i = 1; i < array.length; i++) {
@@ -37,14 +46,19 @@ async function insertionSort (array, speed) {
             }
             childs[j].style.backgroundColor = "blueviolet";    
             j = j - 1;
+            if(halt == 1) {
+                break;
+            }
         }
         childs[i].style.backgroundColor = "blueviolet";
         childs[j + 1].style.height = (key * 20) + "px";
         array[j + 1] = key;
+        if(halt == 1) {
+            console.log(halt);
+            halt = 0;
+            break;
+        }
     }
-    /*for(i = 0; i < childs.length; i++) {
-        childs[i].style.height = (array[i] * 20) + "px"; 
-    }*/
 }
 
 export {insertionSort};

@@ -79,6 +79,13 @@ a:hover {
     border-radius: 10px;
 }
 
+#stop {
+    width: 100px;
+    height: 40px;
+    border: 1px solid rgb(61, 61, 122);
+    border-radius: 10px;
+}
+
 @media only screen and (max-width: 600px) {
     .arena {
       margin-bottom: 60px;

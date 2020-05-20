@@ -13,6 +13,15 @@ async function pauseHandler () {
     return;
 }
 
+let halt = 0;
+
+const stop = document.getElementById('stop');
+
+stop.addEventListener('click', () => {
+    halt = 1;
+})
+
+
 function sleep(ms) {
     //console.log(ms);
     return new Promise(resolve => setTimeout(resolve, ms));

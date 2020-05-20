@@ -16,7 +16,8 @@ pause.disabled = true;
 
 const speed = document.getElementById('speed');
 
-
+const stop = document.getElementById('stop');
+stop.disabled = true;
 
 function between(min, max) {
     let random = Math.random();
@@ -27,7 +28,7 @@ function between(min, max) {
 async function createArray() {
     array = []
     for (let i = 0; i < 100; i++) {
-        array.push(between(0, 25));
+        array.push(between(1, 25));
     }
     let arena = document.querySelector(".arena");
     arena.innerHTML = '';

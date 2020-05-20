@@ -8,6 +8,14 @@ pause.addEventListener('click', () => {
     pause.textContent = run === true ? "Pause" : "Play";
 })
 
+let halt = 0;
+
+const stop = document.getElementById('stop');
+
+stop.addEventListener('click', () => {
+    halt = 1;
+})
+
 
 
 async function pauseHandler () {
@@ -21,6 +29,8 @@ function sleep(ms) {
 }
 
 async function bubbleSort(speed) {
+    stop.disabled = false;
+    halt = 0;  
     let arena = document.querySelector(".arena");
     let childs = document.querySelector(".arena").childNodes;
     for(let i = 0; i < arena.childElementCount - 1; i++) {
@@ -44,6 +54,14 @@ async function bubbleSort(speed) {
             }
             childs[j].style.backgroundColor = "blueviolet";
             childs[j + 1].style.backgroundColor = "blueviolet";
+            if(halt == 1) {
+                break;
+            }
+        }
+        if(halt == 1) {
+            console.log(halt);
+            halt = 0;
+            break;
         }
     }
 }
