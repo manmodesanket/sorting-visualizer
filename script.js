@@ -1,8 +1,10 @@
-import { bubbleSort } from "./scripts/bubble.js";
-import { insertionSort } from "./scripts/insertion.js";
-import { mergeSort } from "./scripts/merge.js";
-import { quickSort } from "./scripts/quick.js";
-import { lastTweak } from "./scripts/lastTweak.js";
+import {
+  bubbleSort,
+  insertionSort,
+  mergeSort,
+  quickSort,
+  lastTweak,
+} from "./scripts";
 
 let array = [];
 
